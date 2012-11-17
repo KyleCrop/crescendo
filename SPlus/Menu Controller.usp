@@ -160,9 +160,27 @@ PUSH Select_Item
     INTEGER item;
 
     item = GETLASTMODIFIEDARRAYINDEX();
-    
+	
     IF(Item_Route_A[item] != 0)
+	{
+		IF(Content = 0)
+			Highlighted_Item[item] = 1;
+		
         SelectItem(item);
+	}
+}
+
+RELEASE Select_Item
+{
+    INTEGER item;
+
+    item = GETLASTMODIFIEDARRAYINDEX();
+	
+    IF(Item_Route_A[item] != 0)
+	{
+		IF(Content = 0)
+			Highlighted_Item[item] = 0;	
+	}
 }
 
 CHANGE Highlight_Route
